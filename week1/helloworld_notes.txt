@@ -1,19 +1,25 @@
-# A break down of all the commands in helloworld.sh
+A break down of all the commands in helloworld.sh
 
-# this starting line means that the script is going to be run with bash; we could change this to #!/bin/python if we were writing a python script
+This starting line means that the script is going to be run with bash; we could change this to #!/bin/python if we were writing a python script
 #!/bin/bash
 
-#SBATCH lines are options you are telling the 
+#SBATCH lines are options you are telling the Slurm workload manager to take into consideration when scheduling your job. Let's break them down one at a time.
 
-
-#SBATCH -p shared
+-p is for the partition you are submitting to
+#SBATCH -p shared 
+-N is for the number of nodes you're requesting
 #SBATCH -N 1
+-n is the number of cores you're requesting
 #SBATCH -n 1 
+--mem is for the amount of memory you are requesting
 #SBATCH --mem 1000
+-t is for the amount of time you think your job will take to run (given the resources you've requested)
 #SBATCH -t 0-30:00
+-o writes a job-specific standard out file
 #SBATCH -o slurm.%N.%j.out
+-e writes a job-specific standard error file
 #SBATCH -e slurm.%N.%j.err
 
-# submit this script from your home directory 
 
-echo "hello world" > log.out
+`echo` takes a line of text that is passed to it as the argument and displays it. Here, we are asking echo to display the text but rather than printing it out, we're getting it to redirect to a new file called world.out
+echo "hello world" > world.out

@@ -4,7 +4,7 @@ Our main goal for week 1 is to get used to using SLURM on the Harvard cluster, a
 
 ## Step 1: Running a SLURM script
 
-The first goal is just to run a very simple SLURM script. The file `helloworld.sh` is a SLURM script that submits a job that will make an empty text file called hello_world.txt in the directory you run the script from, using the UNIX command `touch hellow_world.txt`.
+The first goal is just to run a very simple SLURM script. The file `helloworld.sh` is a SLURM script that submits a job that will make an empty text file called hello_world.txt in the directory you run the script from, using the UNIX command `touch hello_world.txt`.
 
 Look at this script, and the explanation file, and try to get a sense of what each part does. Then, from the cluster, submit the script by typing `sbatch helloworld.sh`.
 

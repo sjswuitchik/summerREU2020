@@ -7,6 +7,6 @@
 #SBATCH -o slurm.%N.%j.out
 #SBATCH -e slurm.%N.%j.err
 
-# submit this script from your home directory 
+# submit this script from your home directory by typing sbatch helloworld.sh 
 
 touch hello_world.txt

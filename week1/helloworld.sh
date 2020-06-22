@@ -9,4 +9,4 @@
 
 # submit this script from your home directory 
 
-echo "hello world" > log.out
+echo "hello world" > world.out

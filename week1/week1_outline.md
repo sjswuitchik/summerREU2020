@@ -12,7 +12,7 @@ The `sbatch` command submits scripts to the cluster. You can monitor the progres
 
 ## Step 2: Modifying a SLURM scripts
 
-The next step is to modify the `helloworld.sh` to do something else. You will leave the slurm commands unchanged, but remove the `touch hellow_world.txt` command and replace it with `ls -l $HOME > homedir_contents.txt`. Try this command in the command line and see what it does, then delete the homedir_contents.txt file.
+The next step is to modify the `helloworld.sh` to do something else. You will leave the slurm commands unchanged, but remove the `touch hello_world.txt` command and replace it with `ls -l $HOME > homedir_contents.txt`. Try this command in the command line and see what it does, then delete the homedir_contents.txt file.
 
 Then, make a copy of the helloworld.sh script, and replace the touch command with the ls command above. Now, submit this script using `sbatch`, and after a few moments you should see the homedir_contents.txt file appear. Remember you can use `squeue` to see the status of your job.
 

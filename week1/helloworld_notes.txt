@@ -21,5 +21,5 @@ This starting line means that the script is going to be run with bash; we could 
 #SBATCH -e slurm.%N.%j.err
 
 
-`echo` takes a line of text that is passed to it as the argument and displays it. Here, we are asking echo to display the text but rather than printing it out, we're getting it to redirect to a new file called world.out
-echo "hello world" > world.out
+`touch` will make an empty file called hello_world.txt in the directory you run the script from
+touch hello_world.txt

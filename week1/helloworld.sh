@@ -9,4 +9,4 @@
 
 # submit this script from your home directory 
 
-echo "hello world" > world.out
+touch hello_world.txt

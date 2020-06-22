@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #SBATCH -p shared
 #SBATCH -N 1
 #SBATCH -n 1 

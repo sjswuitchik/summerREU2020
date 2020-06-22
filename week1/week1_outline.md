@@ -21,12 +21,12 @@ Then, make a copy of the helloworld.sh script, and replace the touch command wit
 The next step is run the read mapping program BWA on a test dataset. We'll do this first interactively, and then make it a SLURM script.  
 
 ### 3a. Running an interactive job  
-To request and run an interactive job, use `srun --pty -p test -t 10 --mem 1000 /bin/bash`. You'll see that your request has been queued, then that it's been allocated. Now you can type directly on the command line. You'll be using the data in the `data` directory (summerREU2020/week1/data). First, we need to load the BWA module (like loading packages in R). We do that by typing:  
+To request and run an interactive job, use `srun --pty -p test -t 10 --mem 1000 /bin/bash`. You'll see that your request has been queued, then that it's been allocated. Now you can type directly on the command line. You'll be using the data in the `data/bwa_tutorial` directory (summerREU2020/week1/data/bwa_tutorial). First, we need to load the BWA module (like loading packages in R). We do that by typing:  
 `module load bwa/0.7.17-fasrc01` 
 
 Now, we need to make an index of the reference genome to help BWA efficiently search the genome while it's aligning sequences. Before we do that though, you'll need to get the reference genome from NCBI:  
 `wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/008/822/105/GCF_008822105.2_bTaeGut2.pat.W.v2/GCF_008822105.2_bTaeGut2.pat.W.v2_genomic.fna.gz`  
-`bwa index -p taeGut taeGut_refgenome.fa.gz`   
+`bwa index -p taeGut GCF_008822105.2_bTaeGut2.pat.W.v2_genomic.fna.gz`   
   
 Next, we can use BWA to align the reads in our sample fastq files to the reference genome. This will output a SAM file for the sample. Let's do that by typing:  
 `bwa mem -t 1 taeGut ERR1013161_1.fastq.gz ERR1013161_2.fastq.gz > ERR1013161.sam #2> taeGut.log`  

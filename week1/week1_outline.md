@@ -24,18 +24,17 @@ The next step is run the read mapping program BWA on a test dataset. We'll do th
 To request and run an interactive job, use `srun --pty -p test -t 10 --mem 1000 /bin/bash`. You'll see that your request has been queued, then that it's been allocated. Now you can type directly on the command line. You'll be using the data in the `data` directory (summerREU2020/week1/data). First, we need to load the BWA module (like loading packages in R). We do that by typing:  
 `module load bwa/0.7.17-fasrc01` 
 
-Now, we need to make an index of the reference genome to help BWA efficiently search the genome while it's aligning sequences. We can do that by typing:  
-`bwa index -p taeGut ~/github_repos/summerREU2020/week1/data/taeGut_refgenome.fa.gz`  
-
-Remember: these paths will change depending on where you are running these commands from. Edit as necessary.  
-
+Now, we need to make an index of the reference genome to help BWA efficiently search the genome while it's aligning sequences. Before we do that though, you'll need to get the reference genome from NCBI:  
+`wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/008/822/105/GCF_008822105.2_bTaeGut2.pat.W.v2/GCF_008822105.2_bTaeGut2.pat.W.v2_genomic.fna.gz`  
+`bwa index -p taeGut taeGut_refgenome.fa.gz`   
+  
 Next, we can use BWA to align the reads in our sample fastq files to the reference genome. This will output a SAM file for the sample. Let's do that by typing:  
 `bwa mem -t 1 taeGut ERR1013161_1.fastq.gz ERR1013161_2.fastq.gz > ERR1013161.sam #2> taeGut.log`  
   
 ### 3b. Running BWA as a slurm script  
-This is an example on a small test dataset that won't take much time to finish. You can use the same architecture of the helloworld.sh slurm script . Make a copy of helloworld.sh, delete the touch command, and then add the bwa commands exactly as you typed them in the interative node. Remember each bash command needs to be on a new line.
+This is an example on a small test dataset that won't take much time to finish. You can use the same architecture of the helloworld.sh slurm script to now run BWA throught the job scheduler. Make a copy of helloworld.sh, delete the touch command, and then add the bwa commands exactly as you typed them in the interative node. Remember each bash command needs to be on a new line.
 
-Now, run this mapping script with `sbatch`. You should get the same output as when you did this interactively.
+Now, run this mapping script with `sbatch <script file name>`. You should get the same output as when you did this interactively.
 
 ## Step 4: Running BWA on real data
 

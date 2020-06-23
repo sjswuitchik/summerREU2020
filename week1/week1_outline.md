@@ -30,7 +30,7 @@ Then we need to make an index of the reference genome to help BWA efficiently se
 `bwa index -p taeGut GCF_008822105.2_bTaeGut2.pat.W.v2_genomic.fna.gz`  
   
 Next, we can use BWA to align the reads in our sample fastq files to the reference genome. This will output a SAM file for the sample. Let's do that by typing:  
-`bwa mem -t 1 -R "@RG\tID:1\tSM:1" taeGut ERR1013161_1.fastq.gz ERR1013161_2.fastq.gz > ERR1013161.sam #2> taeGut.log`  
+`bwa mem -t 1 taeGut ERR1013161_1.fastq.gz ERR1013161_2.fastq.gz > ERR1013161.sam #2> taeGut.log`  
   
 ### 3b. Running BWA as a slurm script  
 This is an example on a small test dataset that won't take much time to finish. You can use the same architecture of the helloworld.sh slurm script to now run BWA throught the job scheduler. Make a copy of helloworld.sh, delete the touch command, and then add the bwa commands exactly as you typed them in the interative node. Remember each bash command needs to be on a new line.

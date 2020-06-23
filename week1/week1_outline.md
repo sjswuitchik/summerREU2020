@@ -38,7 +38,14 @@ This is an example on a small test dataset that won't take much time to finish. 
 Now, run this mapping script with `sbatch <script file name>`. You should get the same output as when you did this interactively.
 
 ## Step 4: Running BWA on real data
+There are four directories in `/n/holyscratch01/informatics/swuitchik/summer2020REU/duck_data/` that contain the duck data. The four species you'll be working with this summer are:  
+1. Black-headed duck (Heteronetta atricapilla), short code `hetAtr` - this is the brood parasitic species!  
+2. African pygmy goose (Nettapus auritus), short code `netAur`  
+3. Ruddy duck (Oxyura jamaicensis), short code `oxyJam`  
+4. Freckled duck (Stictonetta naevosa), short code `stiNae`  
 
--Sara add details
+Dymon, you'll be working with hetAtr, which has more data for the species - Khaleb, you'll be working with the other three species, which don't have as much data per species but you have more species to work with!   
+
+Within each species directory, there are multiple fastq files and a directory called `refGenome` that contains the reference genome that we've made (downloaded from NCBI). You'll want to use the fasta file in the refGenome directory as your reference genome and the fastq files as the sequences you align to the reference genome. Note that these are all 'paired end' reads, which means we have two fastq files per individual. 
 
 Congratulations, you are a bioinformatician now!

@@ -1,20 +1,20 @@
 A break down of all the commands in helloworld.sh
 
-This starting line means that the script is going to be run with bash; we could change this to #!/bin/python if we were writing a python script
+This starting line means that the script is going to be run with bash; we could change this to #!/bin/python if we were writing a python script, but for SLURM this needs to be exactly as typed below.
 #!/bin/bash
 
 #SBATCH lines are options you are telling the Slurm workload manager to take into consideration when scheduling your job. Let's break them down one at a time.
 
--p is for the partition you are submitting to
-#SBATCH -p shared 
+-p is for the partition you are submitting to; shared is the default shared partition we will typically use, and is the main set of compute nodes on the cluster.
+#SBATCH -p shared
 -N is for the number of nodes you're requesting
 #SBATCH -N 1
--n is the number of cores you're requesting
-#SBATCH -n 1 
---mem is for the amount of memory you are requesting
+-n is the number of cores you're requesting; -N 1 and -n 1 means one CPU on one computer. This may seem a little redundant, but is important because if you want to use more CPUs, you typically want to increase -n but leave -N at 1.
+#SBATCH -n 1
+--mem is for the amount of memory you are requesting, in megabytes (so 1000 is 1 Gb)
 #SBATCH --mem 1000
--t is for the amount of time you think your job will take to run (given the resources you've requested)
-#SBATCH -t 0-30:00
+-t is for the amount of time you think your job will take to run (given the resources you've requested). Many formats are acceptable: usually I suggest either just minutes, or days-hours:minutes:seconds. A job requesting 30 minutes would either be 30 or 0-0:30:00
+#SBATCH -t 30
 -o writes a job-specific standard out file
 #SBATCH -o slurm.%N.%j.out
 -e writes a job-specific standard error file

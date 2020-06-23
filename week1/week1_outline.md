@@ -21,7 +21,7 @@ Then, make a copy of the helloworld.sh script, and replace the touch command wit
 The next step is run the read mapping program BWA on a test dataset. We'll do this first interactively, and then as a SLURM script.  
 
 ### 3a. Running an interactive job  
-To request and run an interactive job, use `srun --pty -p test -t 40 --mem 3000 /bin/bash`. You'll see that your request has been queued, then that it's been allocated. Now you can type directly on the command line. You'll be using the data in the `data/bwa_tutorial` directory (summerREU2020/week1/data/bwa_tutorial). Copy the two fastq files to your working directory (eg/ $HOME) then load the BWA module (like loading packages in R):   
+To request and run an interactive job, use `srun --pty -p test -t 40 --mem 2000 /bin/bash`. You'll see that your request has been queued, then that it's been allocated. Now you can type directly on the command line. You'll be using the data in the `data/bwa_tutorial` directory (summerREU2020/week1/data/bwa_tutorial). Copy the two fastq files to your working directory (eg/ $HOME) then load the BWA module (like loading packages in R):   
 `module load bwa/0.7.17-fasrc01` 
 
 Now, you'll need to get the reference genome from NCBI, which you can get by typing:  

@@ -44,8 +44,14 @@ There are four directories in `/n/holyscratch01/informatics/swuitchik/summer2020
 3. Ruddy duck (Oxyura jamaicensis), short code `oxyJam`  
 4. Freckled duck (Stictonetta naevosa), short code `stiNae`  
 
-Dymon, you'll be working with hetAtr, which has more data for the species - Khaleb, you'll be working with the other three species, which don't have as much data per species but you have more species to work with!   
+Dymon, you'll be working with hetAtr, which has more data for the species - Khaleb, you'll be working with the other three species, which don't have as much data per species but you have more species to work with!  
 
-Within each species directory, there are multiple fastq files and a directory called `refGenome` that contains the reference genome that we've made (downloaded from NCBI). You'll want to use the fasta file in the refGenome directory as your reference genome and the fastq files as the sequences you align to the reference genome. Note that these are all 'paired end' reads, which means we have two fastq files per individual. 
+Within each species directory, there are multiple fastq files and a directory called `refGenome` that contains the reference genome that we've made (downloaded from NCBI). You'll want to use the fasta file in the refGenome directory as your reference genome and the fastq files as the sequences you align to the reference genome. Note that these are all 'paired end' reads, which means we have two fastq files per individual.  
+
+You can use the same architecture as the slurm script you submitted for helloworld in Step 2 and the same commands to run BWA as you did with Step 3, with some small modifications. Make a copy of `helloworld.sh` (and rename it to be something more descriptive, like `<sppcode>_bwa.sh`) and make the following changes:  
+- request 8 GB of memory in the #SBATCH commands  
+- set the number of threads for the `bwa mem` command to 8  
+
+Khaleb, you'll need to run BWA three times (once per species), making changes for file names each time. Dymon, you only need to run BWA once but you may have to request more resources or time depending because you have more data to run in one job.  
   
-Congratulations, you are a bioinformatician now!
+Congratulations, you are now bioinformaticians!

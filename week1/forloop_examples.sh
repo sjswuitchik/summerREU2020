@@ -2,21 +2,21 @@
 
 # example 1
 
-for i in 1 2 3 4 5
+for variable in 1 2 3 4 5
 do
-   echo "Hello $i times"
+   echo "Hello $variable times"
 done
 
 # ex 2
 
-for i in {1..5}
+for variable in {1..5}
 do
-  echo "Hello $i times"
+  echo "Hello $variable times"
 done
 
-# ex 3
+# ex 3 - the variable can be any name eg/ var, file, i, anything! 
 
-for i in {0..10..2}
+for var in {0..10..2}
   do 
-     echo "Hello $i times"
+     echo "Hello $var times"
  done

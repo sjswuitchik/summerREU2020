@@ -41,14 +41,14 @@ There is a lot in this loop, so let's unpack each command (more info can be foun
 `-o $file.bam` sets the name of the output file
 
 2. `samtools sort` sorts SAM/BAM files
-- `o` sets the name of the output file
+- `-o` sets the name of the output file
 
 3. `samtools index` indexes SAM/BAM files - the only input for `samtools index` is the input file to be indexed
 
 4. `samtools fixmate` fills in mate coordinates (necessary step before `markdup`) 
-- `r` removes unmapped reads
-- `m` adds mate score tags to be used by `markdup` 
-- `O` sets the format for the output file
+- `-r` removes unmapped reads
+- `-m` adds mate score tags to be used by `markdup` 
+- `-O` sets the format for the output file
 
 
 

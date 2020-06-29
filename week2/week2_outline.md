@@ -69,7 +69,6 @@ Khaleb, since you will only have 1-2 BAMs per individual, you can use the `samto
 
 Dymon, since you have many more BAMs per individual, we'll need to make a list of BAMs per individual and use that as input for the `samtools merge` command, like this: 
 
-`samtools merge -b infiles.list outfile.bam` 
+`samtools merge -b infiles.list outfile.bam`  
 
-
-
+And just like that, you have one BAM per individual and we're ready to calculate coverage! 

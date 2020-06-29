@@ -38,7 +38,7 @@ There is a lot in this loop, so let's unpack each command (more info can be foun
 1. `samtools view` converts between SAM/BAM files.
 - `-b` option sets the output format to BAM
 - `-h` includes the header in the output
-`-o $file.bam` sets the name of the output file
+- `-o` sets the name of the output file
 
 2. `samtools sort` sorts SAM/BAM files
 - `-o` sets the name of the output file
@@ -49,6 +49,11 @@ There is a lot in this loop, so let's unpack each command (more info can be foun
 - `-r` removes unmapped reads
 - `-m` adds mate score tags to be used by `markdup` 
 - `-O` sets the format for the output file
+
+5. `samtools markdup` will mark any duplicate alignments in a coordinate sorted file
+- `-r` removes duplicate reads
+- `s` prints out some basic stats 
+- `-f` writes the stats to a file 
 
 
 

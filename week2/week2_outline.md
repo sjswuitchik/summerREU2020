@@ -21,7 +21,7 @@ Check your ouput from the `stats` command (hint: use `less` or `head`) to make s
 
 ## Step 2: Clean up the SAMs and convert to BAMs
 
-Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in five steps that will be initiated by using a for loop in a slurm script. Remember, you'll need the #SBATCH commands and module load command in your script before your for loop. 
+Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in six steps that will be initiated by using a for loop in a slurm script. Remember, you'll need the #SBATCH commands and module load command in your script before your for loop. 
 
 `for file in *.sam;`  
 `do`  
@@ -53,9 +53,23 @@ There is a lot in this loop, so let's unpack each command (more info can be foun
 5. `samtools markdup` will mark any duplicate alignments in a coordinate sorted file
 - `-r` removes duplicate reads
 - `s` prints out some basic stats 
-- `-f` writes the stats to a file 
+- `-f` writes the stats to a file  
+
+6. `samtools quickcheck` will do a brief validation of of the input file - the only input here is the file to be checked over  
+
+Check over the output and error logs to see if there are any issues with the files that have been produced (go through this with Sara). If the files look good, we can delete the SAM files and any temporary files that may have been produced in this process. 
+
+## Step 3: Merge your BAMs into a single BAM per individual
+
+Now we have a single, clean BAM file from each of our initial SAM files, but we still have multiple BAMs for each individual and we need to combine these together to create a single BAM for each individual. You'll want to create slurm scripts (with #SBATCH and `module load` commands) to do this.  
+
+Khaleb, since you will only have 1-2 BAMs per individual, you can use the `samtools merge` command like this:  
+
+`samtools merge outfile.bam infile1.bam infile2.bam ... infileN.bam`  
+
+Dymon, since you have many more BAMs per individual, we'll need to make a list of BAMs per individual and use that as input for the `samtools merge` command, like this: 
+
+`samtools merge -b infiles.list outfile.bam` 
 
 
 
-
-Even though we have a single SAM file for each run, we have multiple runs per individual so we'll need to clean it up and combine it all into a single file per individual. We're going to do this by u

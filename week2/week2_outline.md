@@ -12,7 +12,8 @@ Then you'll need the SAMtools `view` command to convert your SAM file to a BAM f
 
 `samtools view -b -h -o outfile.bam infile.sam`  
 
-eg/ for the test file, this command would like like `samtools view -b -h -o SAMEA3532871.bam SAMEA3532871_mtv2.sam`  
+eg/ for the test file, this command would like like  
+`samtools view -b -h -o SAMEA3532871.bam SAMEA3532871_mtv2.sam`  
 
 In a second script (afer #SBATCH commands and `module load samtools/1.10-fasrc01`), let's pull some statistics from our BAM file with the SAMtools `stats` command: 
 

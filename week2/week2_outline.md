@@ -21,7 +21,7 @@ In a second script (afer #SBATCH commands and `module load samtools/1.10-fasrc01
 
 Check your ouput from the `stats` command (hint: use `less` or `head`) to make sure it worked. If you're interested in what the stats are, a description of the output sections are listed [here](http://www.htslib.org/doc/samtools-stats.html). But this is pretty overkill so let's use a little trick to just get a summary.  
 
-`samtools stats infile.bam | grep ^SN | cut -f 2-`  
+`slurm.out | grep ^SN | cut -f 2-`  
 
 ## Step 2: Clean up the SAMs and convert to BAMs
 

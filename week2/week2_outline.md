@@ -4,8 +4,7 @@ The main goal for week 2 is to clean up the output from week 1 by producing one 
 
 ## Step 1: Test out SAMtools commands from Bioinformatics Coffee Hour 
 
-Using a SAM file from your week 1 output (or SAMEA3532871_mtv2.sam if your week1 data hasn't finished running yet), set up two slurm scripts to test two different SAMtools commands that Danielle covered in the coffee hour demo last week. A useful command to know is how to convert a SAM file into a BAM file (a compressed version of a SAM file).  
-You'll need to load the SAMtools module as the first step in your slurm script (after the #SBATCH commands): 
+Using a SAM file from your week 1 output (or SAMEA3532871_mtv2.sam if your week1 data hasn't finished running yet), set up two slurm scripts to test two different SAMtools commands that Danielle covered in the coffee hour demo last week. A useful command to know is how to convert a SAM file into a BAM file (a compressed version of a SAM file). You'll need to load the SAMtools module as the first step in your slurm script (after the #SBATCH commands): 
 
 `module load samtools/1.10-fasrc01`
 

@@ -39,7 +39,7 @@ Before we can create a single file per individual, we want to convert them to BA
 `samtools markdup -r -s -f $name.stats.out $name.fm.bam $name.clean.bam`  
 `samtools quickcheck $name.final.bam`  
 
-### script 2: run_bams.sh  
+### script 2: run_samtools.sh  
 `for SP in <working directory>/*.sam;`  
 `do`  
 `sbatch spp_bams.sh $SP`  

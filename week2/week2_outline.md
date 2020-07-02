@@ -25,7 +25,7 @@ Check your ouput from the `stats` command (hint: use `less` or `head`) to make s
 
 ## Step 2: Clean up the SAMs and convert to BAMs
 
-Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in six steps that will be initiated by using a for loop in a slurm script that will be called within another script. Remember, you'll need the #SBATCH commands and module load command in your scripts before the commands.
+Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in six steps that will be initiated by using a for loop in a slurm script that will be called within another script. Remember, you'll need the #SBATCH commands in your scripts before the commands.
 
 ### script 1: spp_bams.sh  
 

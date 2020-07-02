@@ -25,19 +25,29 @@ Check your ouput from the `stats` command (hint: use `less` or `head`) to make s
 
 ## Step 2: Clean up the SAMs and convert to BAMs
 
-Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in six steps that will be initiated by using a for loop in a slurm script. Remember, you'll need the #SBATCH commands and module load command in your script before your for loop. 
+Before we can create a single file per individual, we want to convert them to BAM files and clean them up. We're going to do this in six steps that will be initiated by using a for loop in a slurm script that will be called within another script. Remember, you'll need the #SBATCH commands and module load command in your scripts before the commands.
 
-`for file in *.sam;`  
+### script 1: spp_bams.sh  
+
+`module load samtools/1.10-fasrc01`
+`SP=$1`  
+`name=`echo $SP | sed 's/.sam\+//'\`
+`samtools view -b -h -o $name.bam $name.sam`  
+`samtools sort -o $name.sort.bam $name.bam`  
+`samtools index $name.sort.bam`  
+`samtools fixmate -r -m -O bam $name.sort.bam $name.fm.bam`  
+`samtools markdup -r -s -f $name.stats.out $name.fm.bam $name.clean.bam`  
+`samtools quickcheck $name.final.bam`  
+
+### script 2: run_bams.sh  
+`for SP in <working directory>/*.sam;`  
 `do`  
-  `samtools view -b -h -o $file.bam $file.sam`  
-  `samtools sort -o $file.sorted.bam $file.bam`  
-  `samtools index $file.sorted.bam`  
-  `samtools fixmate -r -m -O bam $file.sorted.bam $file.fm.bam`  
-  `samtools markdup -r -s -f $file.stats.out $file.fm.bam $file.final.bam`  
-  `samtools quickcheck $file.final.bam`  
+`sbatch spp_bams.sh $SP`  
+`sleep 1`  
 `done`  
 
-There is a lot in this loop, so let's unpack each command (more info can be found in the [SAMtools manual page](http://www.htslib.org/doc/samtools.html).
+
+There is a lot in this, so let's unpack each command in the loop (more info can be found in the [SAMtools manual page](http://www.htslib.org/doc/samtools.html)).
 
 1. `samtools view` converts between SAM/BAM files.
 - `-b` option sets the output format to BAM

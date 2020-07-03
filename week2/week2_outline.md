@@ -34,9 +34,7 @@ Before we can create a single file per individual, we want to convert them to BA
 ```name=`echo $SP | sed 's/.sam\+//'` ```  
 `samtools view -b -h -o $name.bam $name.sam`  
 `samtools sort -o $name.sort.bam $name.bam`  
-`samtools index $name.sort.bam`  
-#`samtools fixmate -r -m -O bam $name.sort.bam $name.fm.bam`  
-#`samtools markdup -r -s -f $name.stats.out $name.fm.bam $name.clean.bam`  
+`samtools index $name.sort.bam`   
 `samtools quickcheck $name.clean.bam`  
 
 ### script 2: run_samtools.sh  
@@ -46,8 +44,7 @@ Before we can create a single file per individual, we want to convert them to BA
 `sleep 1`  
 `done`  
 
-
-There is a lot in this, so let's unpack each command in the loop (more info can be found in the [SAMtools manual page](http://www.htslib.org/doc/samtools.html)).
+Let's unpack each command in the loop (more info can be found in the [SAMtools manual page](http://www.htslib.org/doc/samtools.html)).
 
 1. `samtools view` converts between SAM/BAM files.
 - `-b` option sets the output format to BAM
@@ -59,17 +56,7 @@ There is a lot in this, so let's unpack each command in the loop (more info can 
 
 3. `samtools index` indexes SAM/BAM files - the only input for `samtools index` is the input file to be indexed
 
-4. `samtools fixmate` fills in mate coordinates (necessary step before `markdup`) 
-- `-r` removes unmapped reads
-- `-m` adds mate score tags to be used by `markdup` 
-- `-O` sets the format for the output file
-
-5. `samtools markdup` will mark any duplicate alignments in a coordinate sorted file
-- `-r` removes duplicate reads
-- `s` prints out some basic stats 
-- `-f` writes the stats to a file  
-
-6. `samtools quickcheck` will do a brief validation of of the input file - the only input here is the file to be checked over  
+4. `samtools quickcheck` will do a brief validation of of the input file - the only input here is the file to be checked over  
 
 Check over the output and error logs to see if there are any issues with the files that have been produced (go through this with Sara). If the files look good, we can delete the SAM files and any temporary files that may have been produced in this process. 
 

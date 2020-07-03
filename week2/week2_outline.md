@@ -35,7 +35,7 @@ Before we can create a single file per individual, we want to convert them to BA
 `samtools view -b -h -o $name.bam $name.sam`  
 `samtools sort -o $name.sort.bam $name.bam`  
 `samtools index $name.sort.bam`   
-`samtools quickcheck $name.clean.bam`  
+`samtools quickcheck $name.sort.bam`  
 
 ### script 2: run_samtools.sh  
 `for SP in <working directory>/*.sam;`  

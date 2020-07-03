@@ -35,8 +35,8 @@ Before we can create a single file per individual, we want to convert them to BA
 `samtools view -b -h -o $name.bam $name.sam`  
 `samtools sort -o $name.sort.bam $name.bam`  
 `samtools index $name.sort.bam`  
-`samtools fixmate -r -m -O bam $name.sort.bam $name.fm.bam`  
-`samtools markdup -r -s -f $name.stats.out $name.fm.bam $name.clean.bam`  
+#`samtools fixmate -r -m -O bam $name.sort.bam $name.fm.bam`  
+#`samtools markdup -r -s -f $name.stats.out $name.fm.bam $name.clean.bam`  
 `samtools quickcheck $name.final.bam`  
 
 ### script 2: run_samtools.sh  

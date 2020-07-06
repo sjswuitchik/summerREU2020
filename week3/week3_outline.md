@@ -12,4 +12,15 @@ Look through the test.out file (or don't redirect it to an out file and just loo
 
 ## Step 2: Calculate coverage for each individual  
 
-We'll need to look at the coverage for all individuals, which we can do now that we have a BAM for each individual (output from week 2). Create a slurm script (with #SBATCH commands and the module load command) 
+We'll need to look at the coverage for all individuals, which we can do now that we have a BAM for each individual (output from week 2). Create a slurm script (with #SBATCH commands and the module load command) that will calculate the coverage for each individual BAM and save the output into a file for each individual.  
+
+`module load samtools/1.10-fasrc01`  
+`samtools coverage infile.bam > infile.out`  
+
+Pull those output files off the cluster using `sftp` (Sara will go through this with you one-on-one when you get to this step) to your local computer and we can start loading these data into R!  
+
+## Step 3: Identify potential sex-chromosome-associated scaffolds 
+
+Tim, I can come back to this later  
+
+## Step 4: Run SAMtools depth on specific scaffolds

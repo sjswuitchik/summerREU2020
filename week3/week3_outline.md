@@ -12,4 +12,4 @@ Look through the test.out file (or don't redirect it to an out file and just loo
 
 ## Step 2: Calculate coverage for each individual  
 
-We'll need to look at the coverage for all individuals, which we can do now that we have a BAM for each individual (output from week 2). 
+We'll need to look at the coverage for all individuals, which we can do now that we have a BAM for each individual (output from week 2). Create a slurm script (with #SBATCH commands and the module load command) 

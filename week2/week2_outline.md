@@ -29,7 +29,7 @@ Before we can create a single file per individual, we want to convert them to BA
 
 ### script 1: spp_bams.sh  
 
-`module load samtools/1.10-fasrc01`
+`module load samtools/1.10-fasrc01`  
 `SP=$1`  
 ```name=`echo $SP | sed 's/.sam\+//'` ```  
 `samtools view -b -h -o $name.bam $name.sam`  

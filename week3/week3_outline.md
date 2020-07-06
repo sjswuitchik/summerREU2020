@@ -21,6 +21,6 @@ Pull those output files off the cluster using `sftp` (Sara will go through this 
 
 ## Step 3: Identify potential sex-chromosome-associated scaffolds 
 
-Tim, I can come back to this later  
+Tim, I can come back to this later tonight
 
 ## Step 4: Run SAMtools depth on specific scaffolds

@@ -4,7 +4,7 @@ The main goal for week 3 is to identify scaffolds that could be associated with 
 
 ## Step 1: Test ouf SAMtools command on trial data
 
-Using the BAM file in the week 3 directory (test.sorted.bam), use the `coverage` command to calculate some useful summary statistics for each scaffold. You don't need to run this as a slurm script, it will be pretty quick to run in the terminal.  
+With the BAM file in the week 3 directory (test.sorted.bam), use the `coverage` command to calculate some useful summary statistics for each scaffold. You don't need to run this as a slurm script, it will be pretty quick to run in the terminal.  
 
 `samtools coverage test.sorted.bam > test.out`  
 

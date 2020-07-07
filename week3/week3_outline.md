@@ -25,6 +25,8 @@ Now that we're working in R, feel free to go back to the demo code from the virt
 
 Next, we'll want to create a BED file of the scaffolds of interest and write it out from R. A BED file is just a tab-delimited text file that defines genomic features. The first column will be the scaffold name, the second column will be the start position of the scaffold, and the third column will be the end position of the scaffold. BED start and end positions are on a different coordinate system from some other file formats, so once you have the (scaffold)-(start)-(end) columns, you'll want to make a new column where the values are (start - 1). Your new table should then look like this: (scaffold)-(start)-(end)-(start-1). Select just the (scaffold), (start-1), and (end) columns, rename (start-1) to just (start), and write this out as a tab-delimited BED file from R.  
 
+Useful commands for this step that we covered in the intro to R virtualREU session are `library` (to load the tidyverse package), `mutate` (to make new columns with new values), `select` (to choose which columns to include), `rename` (to rename columns), and `write_csv` (to export the final files with the proper delimiter and file extension).  
+
 ## Step 4: Run SAMtools depth on specific scaffolds  
 
 Now that you have identified specific scaffolds that could be sex-linked, use `sftp` to transfer your new BED files to the cluster and run `samtools depth` on the scaffolds of interest. SAMtools `depth` is a more complete look at coverage than SAMtools `coverage` 

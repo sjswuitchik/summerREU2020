@@ -21,6 +21,6 @@ Pull those output files off the cluster using `sftp` (Sara will go through this 
 
 ## Step 3: Identify potential sex-chromosome-associated scaffolds 
 
-Tim, I can come back to this later tonight
+Now that we're working in R, feel free to go back to the demo code from the virtualREU session to familiarize yourself with data manipulation (and to grab the R cheat sheets if you haven't already). With the data you now have for each individual, you can start to explore the coverage relationships between the male and female samples - identify which scaffolds have approximately twice the coverage in males as the same scaffolds in females (remember that male ZZ sex-linked scaffolds will have approx. twice the coverage of a ZW female).
 
 ## Step 4: Run SAMtools depth on specific scaffolds

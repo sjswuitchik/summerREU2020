@@ -29,4 +29,4 @@ Useful commands for this step that we covered in the intro to R virtualREU sessi
 
 ## Step 4: Run SAMtools depth on specific scaffolds  
 
-Now that you have identified specific scaffolds that could be sex-linked, use `sftp` to transfer your new BED files to the cluster and run `samtools depth` on the scaffolds of interest. SAMtools `depth` is a more complete look at coverage than SAMtools `coverage` 
+Now that you have identified specific scaffolds that could be sex-linked, use `sftp` to transfer your new BED files to the cluster and run `samtools depth` on the scaffolds of interest. SAMtools `depth` is a more complete look at coverage than SAMtools `coverage` and allows you to use a BED file as input for what positions and scaffolds you're interested in. The command for a single individual would be something like this: `samtools depth -b scaffolds.bed -o output.txt input.bam`
